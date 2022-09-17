@@ -1,3 +1,3 @@
 # Critical Mass React Project
 
-### Use npm install and npm start
+> Use npm install and npm start
