@@ -1,0 +1,49 @@
+.navigation{
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.273); 
+    margin-top: 25px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.listContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 0 40px 0 40px;
+    justify-content: space-around;
+    
+}
+
+.listContainer > li{
+    list-style: none;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.unSelected{
+    color: rgba(0, 0, 0, 0.412);
+    cursor: pointer;
+}
+
+.unSelected:hover{
+    color: blue;
+}
+
+.selected{
+    color: black;
+    cursor: default;
+}
+
+.marker{
+    position: absolute;
+    left: 0;
+    height: 1.5px;
+    width: 0;
+    background: #000;
+    bottom: -0.5px;
+    transition: 0.5s;
+    border-radius: 4px;
+}

@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from "./Components/NavBar/NavBar";
+import TimeBar from "./Components/TimeBar/TimeBar";
+import { useRef, useState } from "react";
 
 function App() {
+  let data = require('./Data/navigation.json')
+  const timeDisplay = useRef()
+
+  const [selected, setSelected] = useState(0)
+  const [markerPosition, setMarkerPosition] = useState()
+  const [markerWidth, setMarkerWidth] = useState()
+  const [cityTime, setCityTime] = useState()
+
+  function onCityClick(e, index, timeZone){
+    setSelected(index)
+    setMarkerPosition(e.offsetLeft)
+    setMarkerWidth(e.offsetWidth)
+    clearInterval(timeDisplay.current)
+    timeDisplay.current = setInterval(getTime, 500, timeZone)
+}
+
+function getTime(zone){
+  let time = new Date().toLocaleTimeString("en-US", {
+    timeZone:zone,
+    timeStyle:'full',
+    hourCycle:'h24'
+  })
+  let reqTime = time.split(' ')[0]
+  setCityTime(`${reqTime}`)
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar 
+        cityData={data}
+        selected={selected}
+        markerPosition={markerPosition}
+        markerWidth={markerWidth}
+        onCityClick={onCityClick}
+      />
+      <TimeBar 
+        cityTime={cityTime}
+      />
+    </>
   );
 }
 

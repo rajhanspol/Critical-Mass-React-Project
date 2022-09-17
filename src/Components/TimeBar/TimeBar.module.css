@@ -1,0 +1,7 @@
+.timeContainer{
+    margin-top: 50px;
+}
+
+.timeContainer > p{
+    font-size: 30px;
+}
