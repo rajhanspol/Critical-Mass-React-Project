@@ -5,7 +5,7 @@
 
 Hi, this is a React take-home project for Critical mass. As per the instructions, video and JSON file, I have created a navigation bar, using Reactjs.
 
-###### The same project has also been done in vanilla js. Link for the same : https://github.com/rajhanspol/Critical-Mass-Takehome-Project
+###### The same project has also been done in vanilla js. Link : https://github.com/rajhanspol/Critical-Mass-Takehome-Project
 
 I have added another key, timeZone, to the JSON file provided, to calculate time for the respective cities. As an alternative, can use google apis to get the same.
 
