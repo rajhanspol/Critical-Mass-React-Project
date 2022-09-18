@@ -13,12 +13,16 @@ function App() {
 
   function onCityClick(e, index, timeZone){
     setSelected(index)
+
+    // Get coordinates and size for slider wrt the selected city and pass it to navbar.
     setMarkerPosition(e.offsetLeft)
     setMarkerWidth(e.offsetWidth)
+  
     clearInterval(timeDisplay.current)
     timeDisplay.current = setInterval(getTime, 500, timeZone)
 }
 
+// Get time in selected city's timezone
 function getTime(zone){
   let time = new Date().toLocaleTimeString("en-US", {
     timeZone:zone,

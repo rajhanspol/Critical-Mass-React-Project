@@ -5,6 +5,7 @@ function NavBar({cityData, selected, markerPosition, markerWidth, onCityClick}){
 
     const listRef = useRef()
 
+    //Select first city on start and get marker position
     useEffect(() => {
         onCityClick(listRef.current.children[0], 0)
     },[])
